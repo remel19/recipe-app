@@ -6,7 +6,7 @@ By the end of the workshop, we will have a simple recipe app:
 
 ![Snapshot of the final recipe app](./images/Final.png)
 
-# Create your first app
+## Create your first app
 
 First you'll need [node.js](https://nodejs.org/en/) and a JavaScript editor like [vscode](https://code.visualstudio.com/) or [atom](https://atom.io/).
 
@@ -31,7 +31,7 @@ npm start
 
 Now, your new app will load in your browser!
 
-# Components and Props
+## Components and Props
 
 Lets take a look at the basic app that was generated for us. In your editor, open `recipe-app/src/App.js`. The app currently looks like this:
 
@@ -55,7 +55,7 @@ class App extends Component {
 
 Our whole app is in one component, and the render function is at the heart of it. Try modifying some text, save, and watch the app automatically show those changes!
 
-Now lets go ahead and make a new component, `RecipeDispaly`. The render function is the heart of the component because it defines what will be displayed. For now, lets just display a `<div>` HTML tag, with some text inside.
+Now lets go ahead and make a new component, `RecipeDispaly`. The render function in the component defines what will be displayed. For now, lets just display a `<div>` HTML tag, with some text inside.
 
 ```js
 class RecipeDispaly extends Component {
@@ -135,9 +135,9 @@ return (
 
 We are creating an array of `n` elements for it, and the `key` prop is used to tell React what is the order of the elements in the array.
 
-# State
+## State
 
-We want our app to be able to switch between places, so we can use state to keep that data in our App component.
+We want our app to be able to switch between food items, so we can use state to keep that data in our App component.
 
 First, lets add a constructor function that will use the normal class `super` function, and then set up the initial `this.state`:
 
@@ -174,7 +174,8 @@ class App extends Component {
           FoodItem.map((item, index) => (
             <button
               key={index}
-              onClick={() => this.setState({ currentFoodRecipes: index })}
+              onClick={() => console.log('Current Index' + index)}
+              //onClick={() => this.setState({ currentFoodRecipes: index })}
             >
               {item.name}
             </button>
@@ -182,14 +183,14 @@ class App extends Component {
           )
         }
 
-        <RecipeDispaly key={this.state.currentFoodRecipes} name={FoodItem[this.state.currentFoodRecipes].name} />
+        <RecipeDispaly name={FoodItem[this.state.currentFoodRecipes].name} />
       </div>
     );
   }
 }
 ```
 
-# Lifecycle Methods and Data Fetching
+## Lifecycle Methods and Data Fetching
 
 The [lifecycle methods](https://facebook.github.io/react/docs/react-component.html#the-component-lifecycle) of a React component allows us to write additional code for these cases.
 
@@ -224,9 +225,9 @@ class RecipeDispaly extends Component {
         {
           recipes && recipes.map((recipe, index) => (
             <div key={index}>
-              <h3>{recipe.strMeal} <a href={recipe.strYoutube} target='_blank'><YoutubePlay size={32}/></a> </h3>
-              <img className='recipe_img' src={recipe.strMealThumb} alt='Food'/>
-              
+              {JSON.stringify(recipe)}
+              {/* <h3>{recipe.strMeal} <a href={recipe.strYoutube} target='_blank'><YoutubePlay size={32}/></a> </h3>
+              <img className="recipe_img" src={recipe.strMealThumb} alt='Food'/> */}
             </div>
           ))
         }
@@ -236,7 +237,31 @@ class RecipeDispaly extends Component {
 }
 ```
 
-# Resources and other topics
+## Adding some styles(optional)
+
+In order to get your app look like the Final Image of the app above, add these styles in your App.css file.
+
+```css
+svg {
+  fill: red;
+}
+
+.recipe_img {
+  width: 400px;
+  height: 400px;
+}
+
+button {
+  height: 25px;
+  margin: 2px;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.1em;
+}
+```
+
+## Resources and other topics
 
 - [React](reactjs.org) - Official Documentation
 - [React Native](https://facebook.github.io/react-native/) - Use the same techniques to build mobile apps for iOS and Android
