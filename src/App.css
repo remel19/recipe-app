@@ -1,0 +1,21 @@
+.App {
+  text-align: center;
+}
+
+svg {
+  fill: red;
+}
+
+.recipe_img {
+  width: 400px;
+  height: 400px;
+}
+
+button {
+  height: 25px;
+  margin: 2px;
+  border-radius: 3px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 1.1em;
+}
