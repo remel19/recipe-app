@@ -1,5 +1,7 @@
 # Intro To React Workshop
 
+**Note: This app and README.md was inspired from Eric Vicenti's [Intro to React workshop](https://github.com/ericvicenti/intro-to-react) - weather app.**
+
 This is an Intro to React Workshop.
 
 By the end of the workshop, we will have a simple recipe app:
